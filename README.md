@@ -1,6 +1,6 @@
 # Secrets Detection & Security Scanning - DevSecOps CI/CD
 
-This repository demonstrates a **GitHub Actions** pipeline that runs on every push and pull request to `main` / `master`. It fails the workflow when leaked secrets, high-severity dependency issues, or critical/high filesystem findings are detected.
+This repository demonstrates a **GitHub Actions** pipeline that runs on every push and pull request to `main`. It fails the workflow when leaked secrets, high-severity dependency issues, or critical/high filesystem findings are detected.
 
 ## What runs in CI
 
