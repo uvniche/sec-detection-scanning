@@ -1,0 +1,24 @@
+[project]
+name = "secrets-detection-security-scanning"
+version = "0.1.0"
+description = "DevSecOps CI/CD Pipeline"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pydantic-settings>=2.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "bandit[toml]>=1.8.0",
+  "pip-audit>=2.7.0",
+]
+
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "venv"]
+skips = ["B101"]  # assert_used — allowed in tests only; bandit scans src/
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

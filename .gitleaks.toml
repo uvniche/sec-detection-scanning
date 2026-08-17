@@ -1,0 +1,8 @@
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Allow the intentional fake secret shown in the documentation"
+paths = [
+  '''^README\.md$''',
+]
