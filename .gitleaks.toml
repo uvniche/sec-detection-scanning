@@ -1,13 +1,8 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
-description = "Allow intentional fake AWS secret demo pattern in docs/history"
-regexes = [
-  '''AWS_SECRET_ACCESS_KEY(?:_EXAMPLE)?=[A-Za-z0-9/+_=.-]{20,}''',
-  '''printf "AWS_SECRET_ACCESS_KEY(?:_EXAMPLE)?=[A-Za-z0-9/+_=.-]{20,}\\n" > demo-secret\.txt''',
-]
+[allowlist]
+description = "Allow the intentional fake secret shown in the documentation"
 paths = [
   '''^README\.md$''',
-  '''^demo-secret\.txt$''',
 ]

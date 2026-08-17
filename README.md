@@ -4,7 +4,6 @@ A DevSecOps security-scanning pipeline for command-line use and GitHub Actions t
 
 ## What runs in CI
 
-
 | Job                 | Tool                                             | Purpose                                                                         |
 | ------------------- | ------------------------------------------------ | ------------------------------------------------------------------------------- |
 | **Secrets scan**    | [Gitleaks](https://github.com/gitleaks/gitleaks) | Detects API keys, tokens, and other secrets in git history                      |
@@ -13,10 +12,9 @@ A DevSecOps security-scanning pipeline for command-line use and GitHub Actions t
 | **Tests**           | pytest                                           | Unit tests for local security helpers                                           |
 | **Filesystem scan** | [Trivy](https://github.com/aquasecurity/trivy)   | Scans the repository filesystem for OS/library CVEs (CRITICAL/HIGH, fixed only) |
 
+Workflow file: [.github/workflows/security-ci.yml](.github/workflows/security-ci.yml).
 
-Workflow file: `[.github/workflows/security-ci.yml](.github/workflows/security-ci.yml)`.
-
-The Gitleaks job installs the [official CLI](https://github.com/gitleaks/gitleaks) and scans the full git history. It avoids `[gitleaks/gitleaks-action](https://github.com/gitleaks/gitleaks-action)`’s default push range (`before^..after`), which breaks when the push’s `before` commit is the **root** commit—`before^` does not exist, so Git reports `unknown revision` and the action exits with an error even when no leaks are found.
+The Gitleaks job installs the [official CLI](https://github.com/gitleaks/gitleaks) and scans the full git history. It avoids [gitleaks/gitleaks-action](https://github.com/gitleaks/gitleaks-action)’s default push range (`before^..after`), which breaks when the push’s `before` commit is the **root** commit—`before^` does not exist, so Git reports `unknown revision` and the action exits with an error even when no leaks are found.
 
 ## Local
 
@@ -102,4 +100,3 @@ Always rotate immediately if a real secret is ever exposed, and use **GitHub Act
 ## Requirements
 
 - Python **3.11+** (CI uses 3.12)
-

@@ -1,5 +1,5 @@
 [project]
-name = "secure-api-demo"
+name = "secrets-detection-security-scanning"
 version = "0.1.0"
 description = "DevSecOps CI/CD Pipeline"
 readme = "README.md"
